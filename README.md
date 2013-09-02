@@ -151,7 +151,7 @@ A method is described by three properties:
 * `returns` - result data type, _optional_
 
 A parameter is described by two properties:
-* `type` - data type (available types: `string`, `number`, `boolean`, `array`, `_schema_`, default `string`)
+* `type` - data type (available types: `string`, `integer`, `float`, `boolean`, `array`, `_schema_`, default `string`)
 * `default` - default value, _optional_
 
 Example:
