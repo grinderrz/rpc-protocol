@@ -120,13 +120,15 @@ The service should implement special methods.
 
 ### discover ###
 
+- - -
+
 Retrieves information about the service and existed methods.
 
 #### Request ####
 
 * version: `1`
 * method: `discover`
-* args: `['methodName1', 'methodNameN']` _optional_
+* args: `['methodName1', 'methodNameN']`, _optional_
 
 Example:
 
@@ -145,12 +147,12 @@ The reply has two properties on the root:
 
 A method is described by three properties:
 * `description` - description of the method, _optional_
-* `parameters` - existed parameters (for more information see *Example*) _optional_
-* `returns` - result data type _optional_
+* `parameters` - existed parameters (for more information see *Example*), _optional_
+* `returns` - result data type, _optional_
 
 A parameter is described by two properties:
 * `type` - data type (available types: `string`, `number`, `boolean`, `array`, `_schema_`, default `string`)
-* `default` - default value _optional_
+* `default` - default value, _optional_
 
 Example:
 
