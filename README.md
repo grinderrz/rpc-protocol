@@ -112,4 +112,4 @@ Implementation uses Redis lists to organize queues.
 * Server gets the encoded request from list (using `BRPOP`). List key format is `server.[endpoint]`
 * Server processes the request
 * If reply is needed then server pushes (using `LPUSH`) message to list. List key name must be `client.[client id]`
-* The server should set expiration for the client key for 10 seconds
+* The server should set expiration on the client key for 10 seconds
