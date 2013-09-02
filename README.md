@@ -54,7 +54,7 @@ Request should be encoded using json. Format described below:
 </table>
 
 ### Response
-Request should be encoded using json. Format described below:
+Response should be encoded using json too. Format described below:
 
 ```json
 {
