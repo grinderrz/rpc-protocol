@@ -60,7 +60,7 @@ Request should be encoded using json. Format described below:
 {
     "reply" : ["some result"],
     "code" : 1,
-    "msg": "error occurred"
+    "error": "error occurred"
 }
 ```
 
@@ -84,7 +84,7 @@ Request should be encoded using json. Format described below:
     <td>0</td>
 </tr>
 <tr>
-    <td>msg</td>
+    <td>error</td>
     <td>String</td>
     <td>Error message</td>
     <td><em>(Empty string)</em></td>
