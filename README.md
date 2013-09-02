@@ -113,3 +113,88 @@ Implementation uses Redis lists to organize queues.
 * Server processes the request
 * If reply is needed then server pushes (using `LPUSH`) message to list. List key name must be `client.[client id]`
 * The server should set expiration on the client key for 10 seconds
+
+## Service definition ##
+
+The service should implement special methods.
+
+### discover ###
+
+Retrieves information about the service and existed methods.
+
+#### Request ####
+
+* version: `1`
+* method: `discover`
+* args: `['methodName1', 'methodNameN']` _optional_
+
+Example:
+
+```json
+{
+    "v": 1,
+    "method": "discover"
+}
+```
+
+#### Response ####
+
+The reply has two properties on the root: 
+* `service` - description of the service, _optional_
+* `methods` - list of existed methods
+
+A method is described by three properties:
+* `description` - description of the method, _optional_
+* `parameters` - existed parameters (for more information see *Example*) _optional_
+* `returns` - result data type _optional_
+
+A parameter is described by two properties:
+* `type` - data type (available types: `string`, `number`, `boolean`, `array`, `_schema_`, default `string`)
+* `default` - default value _optional_
+
+Example:
+
+```json
+{
+    "reply": {
+        "service": "Calculator",
+        "methods": {
+            "add": {
+                "parameters": [  // an array indicates positional parameters
+                    { "type": "integer", "default": 0 },
+                    { "type": "integer", "default": 0 }
+                ],
+                "returns": "integer"
+            },
+            "divide": {
+                "description": "Do division",
+                "parameters": {
+                    "divisor": { "type": "integer" },
+                    "dividend": { "type": "integer" }
+                },
+                "returns": "float"
+            },
+            "simple": {}, // no requirements on parameters or return type
+            "getAddress" : {
+                "description" : "Takes a person and returns an address",
+                "parameters" : {
+                    "person" : {
+                         // for the type we use a schema
+                        "type": { 
+                            "firstName": { "type": "string" }, 
+                            "lastName": { "type": "string" } 
+                        }
+                    },
+                },
+                // use a schema for the return type
+                "returns": {
+                    "street": { "type": "string" },
+                    "zip": { "type": "string" }, 
+                    "state": { "type": "string" },
+                    "town": { "type": "string" }
+                }
+            }
+        }
+    }
+}
+```
