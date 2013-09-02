@@ -80,7 +80,7 @@ Request should be encoded using json. Format described below:
 <tr>
     <td>code</td>
     <td>Number</td>
-    <td>Error code</td>
+    <td>Reply code</td>
     <td>0</td>
 </tr>
 <tr>
