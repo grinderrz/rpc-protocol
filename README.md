@@ -201,23 +201,23 @@ Example:
 }
 ```
 
-### info ###
+### getInfo ###
 
 - - -
 
-The command returns information and statistics about the service.
+The method returns information and statistics about the service.
 
 #### Request ####
 
 * version: `1`
-* method: `info`
+* method: `getInfo`
 
 Example:
 
 ```json
 {
     "v": 1,
-    "method": "info"
+    "method": "getInfo"
 }
 ```
 
