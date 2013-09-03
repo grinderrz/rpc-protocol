@@ -122,7 +122,7 @@ The service should implement special methods.
 
 - - -
 
-Retrieves information about the service and existed methods.
+The command returns the service definition (description, methods).
 
 #### Request ####
 
@@ -178,9 +178,9 @@ Example:
             },
             "simple": {}, // no requirements on parameters or return type
             "getAddress" : {
-                "description" : "Takes a person and returns an address",
-                "parameters" : {
-                    "person" : {
+                "description": "Takes a person and returns an address",
+                "parameters": {
+                    "person": {
                          // for the type we use a schema
                         "type": { 
                             "firstName": { "type": "string" }, 
@@ -197,6 +197,63 @@ Example:
                 }
             }
         }
+    }
+}
+```
+
+### info ###
+
+- - -
+
+The command returns information and statistics about the service.
+
+#### Request ####
+
+* version: `1`
+* method: `info`
+
+Example:
+
+```json
+{
+    "v": 1,
+    "method": "info"
+}
+```
+
+#### Response ####
+
+* `uptime_in_seconds` - service uptime in seconds
+* `uptime_in_days` - service uptime in days
+* `used_memory` - used memory in bytes
+* `used_memory_human` - used memory for a human (example `1.51M`, `1.3G`)
+* `used_memory_peak` - used memory peak in bytes
+* `used_memory_peak_human` - used memory peak for a human (see `used_memory_human`)
+* `total_connections_received` - total number of connections accepted by the server
+* `total_methods_processed` - total number of methods processed by the server
+* `connected_redis` - number of connected redis servers
+* `redisXXX` - redis server description (example: `ip address:port`)
+* `latest_method_usec` - duration of the latest method call in microseconds
+* `methods_per_sec` - number of methods processed per second
+
+Example:
+
+```json
+{
+    "reply": {
+        "uptime_in_seconds": 128300441,
+        "uptime_in_days": 1484,
+        "used_memory": 484211234,
+        "used_memory_human": "461M",
+        "used_memory_peak": 641233123,
+        "used_memory_peak_human": "611M",
+        "total_connections_received": 12313,
+        "total_methods_processed": 912381,
+        "connected_redis": 2,
+        "redis1": "127.0.0.1:6379",
+        "redis2": "127.0.0.1:6480",
+        "latest_method_usec": 123124124124,
+        "methods_per_sec": 123
     }
 }
 ```
