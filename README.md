@@ -201,7 +201,7 @@ Example:
 }
 ```
 
-### getInfo ###
+### getStatus ###
 
 - - -
 
@@ -210,14 +210,14 @@ The method returns information and statistics about the service.
 #### Request ####
 
 * version: `1`
-* method: `getInfo`
+* method: `getStatus`
 
 Example:
 
 ```json
 {
     "v": 1,
-    "method": "getInfo"
+    "method": "getStatus"
 }
 ```
 
