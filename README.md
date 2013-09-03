@@ -176,7 +176,7 @@ Example:
                 },
                 "returns": "float"
             },
-            "simple": {}, // no requirements on parameters or return type
+            "doNothing": {}, // no requirements on parameters or return type
             "getAddress" : {
                 "description": "Takes a person and returns an address",
                 "parameters": {
