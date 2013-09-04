@@ -80,7 +80,7 @@ Response should be encoded using json too. Format described below:
 <tr>
     <td>code</td>
     <td>Number</td>
-    <td>Reply code</td>
+    <td>Error code</td>
     <td>0</td>
 </tr>
 <tr>
