@@ -6,10 +6,10 @@ Request should be encoded using json. Format described below:
 
 ```json
 {
-    "id" : "10",
+    "id" : "somename10000000",
     "v" : "1",
     "method" : "methodName",
-    "args": ["array", "of", "args"],
+    "args": {"firstArg": "array", "secondArg": "of", "thirdArg": "args"},
     "reply" : true
 }
 ```
@@ -23,8 +23,8 @@ Request should be encoded using json. Format described below:
 </tr>
 <tr>
     <td>id</td>
-    <td>Any number</td>
-    <td>Unique client identifier (big random)</td>
+    <td>Any string</td>
+    <td>Unique client identifier (name + big random)</td>
     <td></td>
 </tr>
 <tr>
